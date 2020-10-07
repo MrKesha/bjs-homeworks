@@ -1,13 +1,14 @@
 "use strict";
 function getResult(a,b,c){
-    let d = Math.sqrt(b*b - (4*a*c));
+    let d = b*b - (4*a*c);
     let x = [];
     if (d == 0) {
         x[0] = -b / (2*a);
     } else if ( d > 0) {
+        d = Math.sqrt(d);
         x[0] = (-b + d) / (2*a);
         x[1] = (-b - d) / (2*a);
-    } else ( d < 0) 
+    } 
     return x;
 };
 
@@ -27,10 +28,7 @@ function getAverageMark(marks){
 };
 
 function askDrink(name,dateOfBirthday){
-    let data = new Date().getFullYear();
-    let year = dateOfBirthday.getFullYear();
-    let age = data - year;
-    let result = (age >= 18) ? `Не желаете ли олд-фэшн, ${name}` : `Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`;
+    let result = ((new Date().getFullYear() - dateOfBirthday.getFullYear()) >= 18) ? `Не желаете ли олд-фэшн, ${name}?` : `Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`;
     return result;
 
 }
