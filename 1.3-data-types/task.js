@@ -7,9 +7,11 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
 
     if (Number.isNaN(percent)) {
         return("Процентная ставка, не число");
-    } else if (Number.isNaN(contribution)) {
+    };
+    if (Number.isNaN(contribution)) {
         return("Начальный взнос, не число");
-    } else if (Number.isNaN(amount)) {
+    };
+    if (Number.isNaN(amount)) {
         return("Общая стоимость, не число");
     };
 
