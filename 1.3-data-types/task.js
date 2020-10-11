@@ -5,6 +5,14 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
     contribution = Number(contribution);
     amount = Number(amount);
 
+    if (Number.isNaN(percent)) {
+        return("Процентная ставка, не число");
+    } else if (Number.isNaN(contribution)) {
+        return("Начальный взнос, не число");
+    } else if (Number.isNaN(amount)) {
+        return("Общая стоимость, не число");
+    };
+
     let refundAmount = amount - contribution; // тело кредита, то что надо вернуть
     let months; // количество выплачиваемых месяцев
     months = (date.getFullYear() - new Date().getFullYear()) * 12;
