@@ -42,26 +42,18 @@ function getAverageMark(marks) {
     }
 };
 function getAverageScore(data){
-  let newData = [];
+  let newData = {};
+  let newDataAverage = [];
+  let array = {average: []};
   for (let key in data) {
     let value = data[key];
-    newData.push(key , getAverageMark(value))
-      }
-      console.log(newData)
+    newData[key] = getAverageMark(value);
+    newDataAverage.push(getAverageMark(value));
+    }
+  array.average = getAverageMark(newDataAverage);
+  let obj = Object.assign(newData, array);
+  console.log(newData);
 };
-
-let data = {
-  algebra : [4, 5, 5, 4],
-  geometry : [2, 5],
-  russian : [3, 3, 4, 5],
-  physics : [5, 5],
-  music : [ 2, 2, 5],
-  english : [4, 4, 3, 3],
-  poetry : [5, 3, 4],
-  chemistry : [2],
-  french : [4, 4] 
-}
-
 
 
 function getPersonData(secretData) {
