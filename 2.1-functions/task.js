@@ -41,17 +41,16 @@ function getAverageMark(marks) {
       return middle;
     }
 };
-
 function getAverageScore(data){
-  let keys = Object.keys(data);
-  keys.forEach(key => {
-    console.log(`${key} : ${getAverageMark(data[key])}`);
-  });
-  
+  let newData = [];
+  for (let key in data) {
+    let value = data[key];
+    newData.push(key , getAverageMark(value))
+      }
+      console.log(newData)
 };
 
-
-console.log(getAverageScore({
+let data = {
   algebra : [4, 5, 5, 4],
   geometry : [2, 5],
   russian : [3, 3, 4, 5],
@@ -61,27 +60,20 @@ console.log(getAverageScore({
   poetry : [5, 3, 4],
   chemistry : [2],
   french : [4, 4] 
-}));
+}
+
 
 
 function getPersonData(secretData) {
-  const entries = Object.entries(secretData);
-  entries.forEach(([key, value]) => {
-  console.log(`${getDecodedValueName(key)}: ${getDecodedValue(value)}`)
-})
-
+  return {
+  firstName: getDecodedValue(secretData.aaa),
+  lastName: getDecodedValue(secretData.bbb)
+    }
 }
-function getDecodedValueName(key) {
-  if (key === "aaa") {
-    return "firstName"
-  } else if (key === "bbb") {
-    return "lastName"
-  }
-};
 function getDecodedValue(secret) {
-  if (secret === 1) {
-    return "Эмильо"
-  } else if (secret === 0) {
-    return "Родриго"
-  }
-};
+if (secret === 1) {
+  return "Эмильо"
+} else if (secret === 0) {
+  return "Родриго"
+}
+}
